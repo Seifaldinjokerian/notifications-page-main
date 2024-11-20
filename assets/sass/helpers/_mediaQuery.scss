@@ -1,0 +1,26 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/vars" as *;
+
+@mixin breakpoints($points) {
+  @if $points == mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if ($points == tablet) {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if ($points == desktop) {
+    @media (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($points == large-desktop) {
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+    }
+  } @else if ($points == large-screen) {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}
